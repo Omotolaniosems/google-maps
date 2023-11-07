@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<!--
-  @license
-  Copyright 2019 Google LLC. All Rights Reserved.
-  SPDX-License-Identifier: Apache-2.0
--->
 <html>
-  <head>
-    <title>Default Data Layer: Earthquakes</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  </head>
-  <body>
-    <div id="map"></div>
-    <div id="info-box">?</div>
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=INSERT_YOUR_API_KEY&callback=initMap&v=weekly"
-    defer
-    ></script>
-  </body>
+<head>
+  <title>Simple Google Map</title>
+  <!-- Include the Google Maps API with your API key -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTVfR2wZiXUNhJeKXOJ4a8I_kbmRPkHhg"></script>
+</head>
+<body>
+  <div id="map" style="width: 100%; height: 400px;"></div>
+
+  <script>
+    // Initialize the map
+    function initMap() {
+      // Specify the latitude and longitude for the map center
+      var mapCenter = { lat: 40.7128, lng: -74.0060 }; // New York City coordinates
+
+      // Create a new map instance and set it to the 'map' div
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: mapCenter,
+        zoom: 12 // Adjust the zoom level as needed
+      });
+
+      // Add a marker to the map
+      var marker = new google.maps.Marker({
+        position: mapCenter,
+        map: map,
+        title: 'New York City' // Marker tooltip
+      });
+    }
+  </script>
+
+  <!-- Call the initMap function when the page loads -->
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+  </script>
+</body>
 </html>
